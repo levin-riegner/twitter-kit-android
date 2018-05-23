@@ -26,6 +26,7 @@ subprojects { Project subproject ->
         }
         dependencies {
             classpath dependency.androidGradlePlugin
+            classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
         }
     }
 
