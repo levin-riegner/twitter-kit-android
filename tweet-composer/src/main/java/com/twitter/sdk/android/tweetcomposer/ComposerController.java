@@ -154,34 +154,34 @@ class ComposerController {
     }
 
     static int remainingCharCount(int charCount) {
-        return Validator.MAX_TWEET_LENGTH - charCount;
+        return TweetValidator.MAX_TWEET_LENGTH - charCount;
     }
 
     /*
      * @return true if the Tweet text is a valid length, false otherwise.
      */
     static boolean isPostEnabled(int charCount) {
-        return charCount > 0 && charCount <= Validator.MAX_TWEET_LENGTH;
+        return charCount > 0 && charCount <= TweetValidator.MAX_TWEET_LENGTH;
     }
 
     /*
      * @return true if the Tweet text is too long, false otherwise.
      */
     static boolean isTweetTextOverflow(int charCount) {
-        return charCount > Validator.MAX_TWEET_LENGTH;
+        return charCount > TweetValidator.MAX_TWEET_LENGTH;
     }
 
     /*
      * Mockable class that provides ComposerController dependencies.
      */
     static class DependencyProvider {
-        final Validator tweetValidator = new Validator();
+        final TweetValidator tweetValidator = new TweetValidator();
 
         TwitterApiClient getApiClient(TwitterSession session) {
             return TwitterCore.getInstance().getApiClient(session);
         }
 
-        Validator getTweetValidator() {
+        TweetValidator getTweetValidator() {
             return tweetValidator;
         }
     }
